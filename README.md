@@ -1,5 +1,9 @@
 # Proyecto 1 — Agentes Virtuales (PF-3312)
 
+**Autor:** Ney Fred Jiménez Campos
+**Carné:** B03230
+**Curso:** PF-3312 Laboratorio de Agentes Virtuales Inteligentes — UCR, I Ciclo 2026
+
 Primer entregable del laboratorio del curso PF-3312, Agentes Virtuales
 Inteligentes, del Posgrado en Computación e Informática de la UCR
 (I Ciclo, 2026).
@@ -15,15 +19,26 @@ Hecho en Unity 6000.3.11f1 con URP.
 
 ## Cómo abrir el proyecto
 
-Abrir la carpeta `NeyFred_Jimenez/` desde Unity Hub con la versión
-6000.3.11f1. La primera importación tarda varios minutos porque se
-generan los caches de shaders y blend shapes. Una vez termine se puede
-abrir cualquiera de las escenas en `Assets/Scenes/` (`Max.unity`,
-`Winston.unity` o `Liam.unity`) y darle Play.
+1. Instalar **Unity Hub** y desde ahí **Unity 6000.3.11f1**.
+2. Clonar el repositorio: `git clone https://github.com/jmnzcn/pf3312_lab.git`.
+3. En Unity Hub, hacer *Add → Add project from disk* y seleccionar la
+   carpeta `pf3312_lab/NeyFred_Jimenez`.
+4. Abrir el proyecto. La primera importación tarda varios minutos porque
+   se generan los caches de shaders y blend shapes; es normal.
+5. Cuando termine, abrir cualquiera de las escenas en `Assets/Scenes/`
+   (`Max.unity`, `Winston.unity` o `Liam.unity`) y darle **Play**.
 
-Cada escena tiene un Canvas con el mismo esquema: expresiones faciales a
-la izquierda, acciones físicas a la derecha, un botón Hablar al centro y
-dos cámaras (Cam 1 de cuerpo completo y Cam 2 de rostro).
+## Cómo usar la demo
+
+Cada escena tiene un Canvas con el mismo esquema de controles:
+
+- **Lado izquierdo**: expresiones faciales (Alegría, Tristeza, Duda,
+  Neutral).
+- **Lado derecho**: acciones físicas propias del agente.
+- **Botón central "Hablar"**: reproduce el audio TTS sincronizado con la
+  animación facial (lip-sync).
+- **Cam 1 / Cam 2**: alterna el encuadre entre cuerpo completo y rostro
+  en primer plano.
 
 ## Personajes
 
@@ -88,6 +103,16 @@ sobre el avatar humanoid de cada modelo.
 - Max: https://youtu.be/1mlcplqlNbc
 - Winston: https://youtu.be/Gz3U2PqKKbk
 - Liam: https://youtu.be/DR3c7ND_fFs
+
+## Créditos
+
+- **Max** y **Winston**: *iClone Character* por Reallusion (Unity Asset
+  Store, v1.03, licencia EULA estándar, gratuito).
+- **Liam**: *1 Toon Teen* por JBGarraza (Unity Asset Store, v1.3,
+  licencia EULA estándar, gratuito).
+- **Animaciones físicas**: Mixamo (Adobe), aplicadas por retargeting
+  humanoid.
+- **Voces**: clips de TTS guardados en `Assets/Sonidos/`.
 
 ## Documento de la entrega
 

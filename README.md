@@ -1,103 +1,89 @@
 # Proyecto 1 — Agentes Virtuales (PF-3312)
 
-Primer entregable del laboratorio de PF-3312, Agentes Virtuales Inteligentes
-(Posgrado en Computación e Informática, UCR. I Ciclo, 2026).
+Primer entregable del laboratorio del curso PF-3312, Agentes Virtuales
+Inteligentes, del Posgrado en Computación e Informática de la UCR
+(I Ciclo, 2026).
 
-El objetivo de esta entrega es seleccionar, justificar y dejar configurados
-en Unity tres modelos 3D que servirán como base para construir agentes
-virtuales en las entregas siguientes. Los personajes se escogieron buscando
-registros visuales claramente distintos —Max como agente realista de
-bienestar físico, Winston como personaje caricaturesco de entretenimiento
-y Liam como tutor adolescente en estilo cartoon— porque cada uno tiene una
-procedencia, una topología y un set de blend shapes diferente. Esto obliga
-a validar el mismo flujo de expresión facial, lip-sync y animación corporal
-sobre tres pipelines técnicos distintos, que es justamente lo que se busca
-demostrar en esta etapa.
+En esta entrega se preparan en Unity tres modelos 3D para usarlos como
+agentes virtuales en las próximas entregas. Cada uno representa un estilo
+visual distinto: Max es realista (atlético), Winston es caricaturesco y
+Liam es cartoon. La idea de combinar los tres es probar el mismo flujo de
+expresión facial, lip-sync y animación corporal sobre pipelines técnicos
+diferentes.
 
-El proyecto está implementado en Unity 6000.3.11f1 con Universal Render
-Pipeline (URP).
+Hecho en Unity 6000.3.11f1 con URP.
 
 ## Cómo abrir el proyecto
 
-Abrir la carpeta `NeyFred_Jimenez/` desde Unity Hub usando la versión
-6000.3.11f1. La primera importación tarda varios minutos porque se generan
-los caches de shaders y blend shapes; una vez termine, basta con abrir
-cualquiera de las escenas dentro de `Assets/Scenes/` (`Max.unity`,
+Abrir la carpeta `NeyFred_Jimenez/` desde Unity Hub con la versión
+6000.3.11f1. La primera importación tarda varios minutos porque se
+generan los caches de shaders y blend shapes. Una vez termine se puede
+abrir cualquiera de las escenas en `Assets/Scenes/` (`Max.unity`,
 `Winston.unity` o `Liam.unity`) y darle Play.
 
-Cada escena expone un Canvas con el mismo esquema de control: expresiones
-faciales del lado izquierdo, acciones físicas del lado derecho, un botón
-central de Hablar que reproduce el audio TTS sincronizado con la animación
-facial, y dos cámaras (Cam 1 de cuerpo completo, Cam 2 de rostro en primer
-plano).
+Cada escena tiene un Canvas con el mismo esquema: expresiones faciales a
+la izquierda, acciones físicas a la derecha, un botón Hablar al centro y
+dos cámaras (Cam 1 de cuerpo completo y Cam 2 de rostro).
 
 ## Personajes
 
 ### Max
 
-Acompañante de bienestar físico, pensado para contextos de gimnasio o de
-asistente de entrenamiento. Es un humanoide masculino atlético, calvo, con
-short deportivo, ambientado en un gimnasio industrial. El modelo proviene
-del asset Max iClone Character de Reallusion (Unity Asset Store, versión
-1.03, licencia EULA estándar, gratuito).
+Acompañante de bienestar físico. Humanoide masculino atlético, calvo,
+con short deportivo, ambientado en un gimnasio industrial. El modelo es
+Max iClone Character de Reallusion (Unity Asset Store, v1.03, licencia
+EULA estándar, gratuito).
 
-Acciones físicas disponibles: Idle, PushUps, Saludar, Burpee y
-QuedarseQuieto. Las expresiones faciales son Alegría, Tristeza, Duda y
-Neutral. El rigging es humanoid sobre la nomenclatura de Character Creator,
-lo que permite aplicar animaciones de Mixamo por retargeting sin pasos
-adicionales.
+Acciones físicas: Idle, PushUps, Saludar, Burpee, QuedarseQuieto.
+Expresiones: Alegría, Tristeza, Duda, Neutral. El rigging es humanoid
+con la nomenclatura de Character Creator, así que las animaciones de
+Mixamo se aplican por retargeting sin pasos adicionales.
 
 Código: `Assets/Scripts/Max.cs`.
 
 ### Winston
 
-Personaje caricaturesco de proporciones exageradas (piernas largas, torso
-compacto, rasgos faciales angulosos, mohawk). Se eligió como agente de
-entretenimiento y, sobre todo, como contraste estético frente a Max para
-poder comparar dos estilos del mismo pipeline. El modelo es el asset
-Winston iClone Character de Reallusion (Unity Asset Store, versión 1.03,
-licencia EULA estándar, gratuito).
+Personaje caricaturesco de proporciones exageradas: piernas largas,
+torso compacto, rasgos faciales angulosos, mohawk. Funciona como agente
+de entretenimiento y como contraste estético frente a Max, para comparar
+dos estilos del mismo pipeline. Asset Winston iClone Character de
+Reallusion (Unity Asset Store, v1.03, licencia EULA estándar, gratuito).
 
-Acciones físicas disponibles: Idle, Pelear, Bailar y DeAcuerdo. Comparte
-con Max las cuatro expresiones faciales y la misma estructura de blend
-shapes.
+Acciones físicas: Idle, Pelear, Bailar, DeAcuerdo. Comparte con Max las
+mismas expresiones faciales y la misma estructura de blend shapes.
 
 Código: `Assets/Scripts/Winston.cs`.
 
 ### Liam
 
-Tutor adolescente en estética cartoon stylized, pensado para escenarios
-educativos. A diferencia de los dos anteriores, el modelo no viene del
-pipeline de Reallusion sino del asset 1 Toon Teen de JBGarraza (Unity Asset
-Store, versión 1.3, licencia EULA estándar, gratuito). El esqueleto sigue
-siendo humanoid, así que las animaciones de Mixamo siguen siendo
-compatibles, pero los blend shapes están organizados con otra convención;
-parte del valor de incluirlo es precisamente comprobar que el mismo sistema
-de control funciona sobre un pipeline distinto.
+Tutor adolescente en cartoon stylized, pensado para escenarios
+educativos. A diferencia de los otros dos, no viene del pipeline de
+Reallusion sino del asset 1 Toon Teen de JBGarraza (Unity Asset Store,
+v1.3, licencia EULA estándar, gratuito). El esqueleto sigue siendo
+humanoid, así que las animaciones de Mixamo también funcionan, aunque
+los blend shapes están organizados con otra convención.
 
-Acciones físicas disponibles: Idle, Confianza, Guitarra, Jugar y
-QuedarseQuieto.
+Acciones físicas: Idle, Confianza, Guitarra, Jugar, QuedarseQuieto.
 
 Código: `Assets/Scripts/Liam.cs`.
 
 ## Estructura del proyecto
 
-Solo lo relevante para revisar la entrega:
+Lo relevante para revisar la entrega:
 
-- `Assets/Scripts/`: la lógica de cada agente (`Max.cs`, `Winston.cs`,
+- `Assets/Scripts/`: lógica de cada agente (`Max.cs`, `Winston.cs`,
   `Liam.cs`).
 - `Assets/Scenes/`: una escena por agente.
 - `Assets/Modelos/`: FBX, materiales, texturas, prefab y animaciones de
-  cada personaje, separados por subcarpeta.
+  cada personaje.
 - `Assets/Prefabs/`: el Canvas compartido por las tres escenas.
 - `Assets/Sonidos/`: clips de voz TTS por personaje.
-- `Assets/Imagenes/`: fondos usados como escenarios (gimnasio, granja,
-  fondo neutro).
+- `Assets/Imagenes/`: fondos usados como escenarios.
 
-Las animaciones físicas se obtuvieron de Mixamo y se aplicaron por
-retargeting sobre el avatar humanoid de cada modelo.
+Las animaciones físicas vienen de Mixamo y se aplicaron por retargeting
+sobre el avatar humanoid de cada modelo.
 
-## Videos de demostración
+## Videos
 
 - Max: https://youtu.be/1mlcplqlNbc
 - Winston: https://youtu.be/Gz3U2PqKKbk
@@ -105,8 +91,6 @@ retargeting sobre el avatar humanoid de cada modelo.
 
 ## Documento de la entrega
 
-El documento formal con la selección, la justificación estética, el marco
-teórico, los datos técnicos detallados (rigging, blend shapes, conteos
-poligonales, lip-sync) y las referencias bibliográficas se encuentra en
-`Docs/Proyecto1_Lab_NeyFredJimenez_B03230.pdf`. Este README solo busca dar
-contexto operativo al proyecto en Unity.
+La justificación estética, el marco teórico, los datos técnicos
+detallados (rigging, blend shapes, conteos poligonales, lip-sync) y las
+referencias están en `Docs/Proyecto1_Lab_NeyFredJimenez_B03230.pdf`.
